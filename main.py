@@ -21,14 +21,14 @@ async def on_ready():
 async def hello(interaction: discord.Interaction):
     await interaction.response.send_message(f"Hello {interaction.user.mention}!")
 
-@bot.tree.command(name="play", description="Zagraj z podaną liczbą")
-@app_commands.describe(number="Wpisz jakąś liczbę")
-async def play(interaction: discord.Interaction, number: int):
+@bot.tree.command(name="play", description="Word lenght.")
+@app_commands.describe(lenght="Enter word lenght.")
+async def play(interaction: discord.Interaction, lenght: int):
     global word
-    word_list = words.words()  # poprawka tutaj
-    filtered_words = [w for w in word_list if len(w) == number]
+    word_list = words.words()
+    filtered_words = [w for w in word_list if len(w) == lenght]
     if not filtered_words:
-        await interaction.response.send_message(f"There no words with {number} length ;c")
+        await interaction.response.send_message(f"There no words with {lenght} length ;c")
         return
 
     word = random.choice(filtered_words)
@@ -37,11 +37,11 @@ async def play(interaction: discord.Interaction, number: int):
     embed = discord.Embed(
     title="New Wordle game!",
     description=f"Respond to my message to start!",
-    color=discord.Color.blue()  # możesz zmienić kolor
+    color=discord.Color.blue()
     )
     embed.set_author(name=bot.user.display_name, url="https://github.com/R3akeOn3", icon_url="https://i.imgur.com/y3m6x7h.png")
     embed.set_thumbnail(url=interaction.user.avatar.url)
-    embed.add_field(name="Word Lenght", value=f"Lenght {number}", inline=True)
+    embed.add_field(name="Word Lenght", value=f"Lenght {lenght}", inline=True)
     embed.set_footer(text="Made in China",)
 
     await interaction.response.send_message(embed=embed)
