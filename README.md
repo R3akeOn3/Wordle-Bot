@@ -57,6 +57,6 @@ Type `/play <number>` to start a game with a word of length `<number>`. Then jus
 
 ## About me
 
-Created by r3AK — [github.com/R3akeOn3](https://github.com/R3akeOn3)
+Created by R3akeOn3_ — [github.com/R3akeOn3](https://github.com/R3akeOn3)
 
 ---
